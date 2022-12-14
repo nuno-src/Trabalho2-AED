@@ -9,7 +9,7 @@ namespace trabalho2
     // class para o recluso
     internal class Pessoa
     {
-        private int numcidadao;
+        private string numcidadao;
         private string nome;
         private string genero;
         private DateTime datanasc;
@@ -26,7 +26,7 @@ namespace trabalho2
         //    numcidadao = Nnumcidadao;
         //}
 
-        public int Num_cidadao { get => numcidadao; set => numcidadao = value; }
+        public string Num_cidadao { get => numcidadao; set => numcidadao = value; }
         public string Nome { get => nome; set => nome = value; }
         public string Genero { get => genero; set => genero = value; }
         public DateTime Datanasc { get => datanasc; set => datanasc = value; }
@@ -42,7 +42,7 @@ namespace trabalho2
         public override int GetHashCode()
         {
             int soma = 0;
-            foreach (char ch in Nome)
+            foreach (char ch in Num_cidadao)
                 soma += Convert.ToInt32(ch);
             return soma;
         }

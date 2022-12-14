@@ -62,38 +62,38 @@ namespace trabalho2
         static void Adicionar_recluso()
         {
 
-            Console.Write("Insira o numero de cidadao:");
-            int num_cid = int.Parse(Console.ReadLine());
+            //Console.Write("Insira o numero de cidadao:");
+            //string num_cid = Console.ReadLine();
 
-            Console.Write("Insira o Nome:");
-            string nome = Console.ReadLine();
+            //Console.Write("Insira o Nome:");
+            //string nome = Console.ReadLine();
 
-            Console.Write("Insira a estado:");
-            string genero = Console.ReadLine();
+            //Console.Write("Insira o Genero:");
+            //string genero = Console.ReadLine();
 
-            Console.Write("Insira a Data de nascimento:");
-            string datanasc = Console.ReadLine();
+            //Console.Write("Insira a Data de nascimento:");
+            //string datanasc = Console.ReadLine();
 
-            Console.Write("Insira o contacto:");
-            int contacto = int.Parse(Console.ReadLine());
+            //Console.Write("Insira o contacto:");
+            //int contacto = int.Parse(Console.ReadLine());
 
-            Console.Write("Insira a Data de entrada na prisao:");
-            string dataentrada = Console.ReadLine();
-
-
-            Console.Write("Insira o numero de dias de pena a cumprir:");
-            int diasacumprir = int.Parse(Console.ReadLine());
-
-            Console.Write("Insira o motivo de saida:");
-            string motivosaida = Console.ReadLine();
-
-            Console.Write("Insira a Data de saida da prisao:");
-            string datasaida = Console.ReadLine();
+            //Console.Write("Insira a Data de entrada na prisao:");
+            //string dataentrada = Console.ReadLine();
 
 
-            t.InserirNovaPessoa(new Pessoa { Num_cidadao = num_cid, Nome = nome, Genero = genero, Datanasc = DateTime.Parse(datanasc), Contacto = contacto, Dataentrada = DateTime.Parse(dataentrada), Diasacumprir = diasacumprir, Motivosaida = motivosaida, Datasaida = DateTime.Parse(datasaida) });
+            //Console.Write("Insira o numero de dias de pena a cumprir:");
+            //int diasacumprir = int.Parse(Console.ReadLine());
+
+            //Console.Write("Insira o motivo de saida:");
+            //string motivosaida = Console.ReadLine();
+
+            //Console.Write("Insira a Data de saida da prisao:");
+            //string datasaida = Console.ReadLine();
 
 
+            //t.InserirNovaPessoa(new Pessoa { Num_cidadao = num_cid, Nome = nome, Genero = genero, Datanasc = DateTime.Parse(datanasc), Contacto = contacto, Dataentrada = DateTime.Parse(dataentrada), Diasacumprir = diasacumprir, Motivosaida = motivosaida, Datasaida = DateTime.Parse(datasaida) });
+
+            t.InserirNovaPessoa(new Pessoa { Num_cidadao = "345564", Nome = "Zeferino", Genero = "Masculino", Datanasc = DateTime.Parse("03/07/1970"), Contacto = 123456789, Dataentrada = DateTime.Parse("14/09/1980"), Diasacumprir = 23000, Motivosaida = "pena cumprida", Datasaida = DateTime.Parse("23/03/2050") });
 
 
             Console.WriteLine("\nRecluso registado com sucesso!");
