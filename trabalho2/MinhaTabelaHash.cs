@@ -54,7 +54,8 @@ namespace trabalho2
                         cama++;
                     }
                 }
-                else { 
+                else
+                { 
                     i++;
                     cama = 0;
                 }
@@ -85,7 +86,32 @@ namespace trabalho2
 
 
 
+        public override string ToString()
+        {
+            StringBuilder res = new StringBuilder();
+            
+            for (int i = 0; i < tam; i++)
+            {
+                Console.WriteLine("--------------------------");
+                Console.WriteLine("Cela: " + i);
+                Console.WriteLine(" ");
+                Console.WriteLine("Camas:");
 
+
+
+                for (int s = 0; s < 3; s++)
+                {
+                    
+                    Console.WriteLine(string.Format("[{0}] -> {1} ", s,
+                    tab[i,s] != null ? tab[i,s].Nome : "V A Z I O"));
+
+                }
+            }
+
+
+            Console.WriteLine("--------------------------");
+            return res.ToString();
+        }
 
 
 

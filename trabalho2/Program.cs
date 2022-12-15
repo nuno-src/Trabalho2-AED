@@ -28,6 +28,9 @@ namespace trabalho2
             {
                 Console.WriteLine("\n-------------------MENU-----------------");
                 Console.WriteLine(" 1) - Adicionar recluso");
+                Console.WriteLine(" 2) - Procurar recluso");
+                Console.WriteLine(" 3) - Remover recluso");
+                Console.WriteLine(" 4) - Ver lotação da prisão");
 
 
                 Console.WriteLine(" 0) - Sair");
@@ -43,6 +46,7 @@ namespace trabalho2
 
                     case 1: Adicionar_recluso(); break;
                     case 0: Environment.Exit(0); break;
+                    case 4: ver_lotacao(); break;
 
 
 
@@ -94,10 +98,19 @@ namespace trabalho2
             //t.InserirNovaPessoa(new Pessoa { Num_cidadao = num_cid, Nome = nome, Genero = genero, Datanasc = DateTime.Parse(datanasc), Contacto = contacto, Dataentrada = DateTime.Parse(dataentrada), Diasacumprir = diasacumprir, Motivosaida = motivosaida, Datasaida = DateTime.Parse(datasaida) });
 
             t.InserirNovaPessoa(new Pessoa { Num_cidadao = "345564", Nome = "Zeferino", Genero = "Masculino", Datanasc = DateTime.Parse("03/07/1970"), Contacto = 123456789, Dataentrada = DateTime.Parse("14/09/1980"), Diasacumprir = 23000, Motivosaida = "pena cumprida", Datasaida = DateTime.Parse("23/03/2050") });
+            t.InserirNovaPessoa(new Pessoa { Num_cidadao = "3455656744", Nome = "Zeferino", Genero = "Masculino", Datanasc = DateTime.Parse("03/07/1970"), Contacto = 123456789, Dataentrada = DateTime.Parse("14/09/1980"), Diasacumprir = 23000, Motivosaida = "pena cumprida", Datasaida = DateTime.Parse("23/03/2050") });
+            t.InserirNovaPessoa(new Pessoa { Num_cidadao = "76893455642", Nome = "Zeferino", Genero = "Masculino", Datanasc = DateTime.Parse("03/07/1970"), Contacto = 123456789, Dataentrada = DateTime.Parse("14/09/1980"), Diasacumprir = 23000, Motivosaida = "pena cumprida", Datasaida = DateTime.Parse("23/03/2050") });
 
 
             Console.WriteLine("\nRecluso registado com sucesso!");
 
+        }
+
+        static void ver_lotacao()
+        {
+
+            Console.WriteLine(t);
+        
         }
     }
 }
