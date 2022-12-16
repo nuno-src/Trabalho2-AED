@@ -158,16 +158,11 @@ namespace trabalho2
 
                     tab[temp_index, z].Diasacumprir = np;
 
-                    Console.WriteLine($"O recluso com o numero de cidadao {nc} foi removido.");
+                    Console.WriteLine($"O recluso com o numero de cidadao {nc} teve a sua pena alterada para {np} dias");
                     //return procurado;
                 }
 
             }
-
-
-
-
-
 
         }
 
