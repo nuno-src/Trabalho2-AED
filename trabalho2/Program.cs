@@ -45,6 +45,7 @@ namespace trabalho2
                 {
 
                     case 1: Adicionar_recluso(); break;
+                    case 2: Procurar_recluso(); break;
                     case 0: Environment.Exit(0); break;
                     case 4: ver_lotacao(); break;
 
@@ -98,13 +99,25 @@ namespace trabalho2
             //t.InserirNovaPessoa(new Pessoa { Num_cidadao = num_cid, Nome = nome, Genero = genero, Datanasc = DateTime.Parse(datanasc), Contacto = contacto, Dataentrada = DateTime.Parse(dataentrada), Diasacumprir = diasacumprir, Motivosaida = motivosaida, Datasaida = DateTime.Parse(datasaida) });
 
             t.InserirNovaPessoa(new Pessoa { Num_cidadao = "345564", Nome = "Zeferino", Genero = "Masculino", Datanasc = DateTime.Parse("03/07/1970"), Contacto = 123456789, Dataentrada = DateTime.Parse("14/09/1980"), Diasacumprir = 23000, Motivosaida = "pena cumprida", Datasaida = DateTime.Parse("23/03/2050") });
-            t.InserirNovaPessoa(new Pessoa { Num_cidadao = "3455656744", Nome = "Zeferino", Genero = "Masculino", Datanasc = DateTime.Parse("03/07/1970"), Contacto = 123456789, Dataentrada = DateTime.Parse("14/09/1980"), Diasacumprir = 23000, Motivosaida = "pena cumprida", Datasaida = DateTime.Parse("23/03/2050") });
-            t.InserirNovaPessoa(new Pessoa { Num_cidadao = "76893455642", Nome = "Zeferino", Genero = "Masculino", Datanasc = DateTime.Parse("03/07/1970"), Contacto = 123456789, Dataentrada = DateTime.Parse("14/09/1980"), Diasacumprir = 23000, Motivosaida = "pena cumprida", Datasaida = DateTime.Parse("23/03/2050") });
+            t.InserirNovaPessoa(new Pessoa { Num_cidadao = "3455656744", Nome = "Saraiva", Genero = "Masculino", Datanasc = DateTime.Parse("03/07/1970"), Contacto = 123456789, Dataentrada = DateTime.Parse("14/09/1980"), Diasacumprir = 23000, Motivosaida = "pena cumprida", Datasaida = DateTime.Parse("23/03/2050") });
+            t.InserirNovaPessoa(new Pessoa { Num_cidadao = "76893455642", Nome = "Albano", Genero = "Masculino", Datanasc = DateTime.Parse("03/07/1970"), Contacto = 123456789, Dataentrada = DateTime.Parse("14/09/1980"), Diasacumprir = 23000, Motivosaida = "pena cumprida", Datasaida = DateTime.Parse("23/03/2050") });
 
 
             Console.WriteLine("\nRecluso registado com sucesso!");
 
         }
+
+
+        static void Procurar_recluso()
+        {
+            Console.Write("Insira o numero de cidadao:");
+            string num_cid = Console.ReadLine();
+
+            t.Procurar(num_cid);
+
+        }
+
+
 
         static void ver_lotacao()
         {

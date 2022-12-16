@@ -11,6 +11,8 @@ namespace trabalho2
         static public Pessoa[,] tab;
         const int tam = 8;
 
+        private List<Pessoa> lista_reclusos = new List<Pessoa>();
+
         public MinhaTabelaHash() : this(8) { }
         public MinhaTabelaHash(int tam)
         {
@@ -26,7 +28,10 @@ namespace trabalho2
 
         public void InserirNovaPessoa(Pessoa p)
         {
+            lista_reclusos.Add(p);
+
             int cama = 0;
+            int volta = 0;
             
             int i = calc_index(p);
             Console.WriteLine("Index:" + i);
@@ -43,10 +48,33 @@ namespace trabalho2
                         
                         
                     }
-                    if (tab[7, 2] != null)
+                    if (i == 7 && cama == 2 && tab[7, 2] != null)
                     {
                         i = 0;
                         cama = 0;
+                        volta++;
+                    }
+                    if (volta == 2)
+                    {
+                        // acontece se todas as celas estivrem cheias(o recluso mais antigo é tranferido)
+
+                        Console.WriteLine($"O recluso com o numero de cidadao {p.Num_cidadao} ");
+
+                        Pessoa rec_mais_antigo = o_mais_antigo(p);
+
+                        int index_do_rec_mais_antigo = calc_index(rec_mais_antigo);
+
+                        for (int z = 0; z < 3; z++)
+                        {
+                            if (tab[index_do_rec_mais_antigo, z] != null && tab[index_do_rec_mais_antigo, z].Num_cidadao == rec_mais_antigo.Num_cidadao)
+                            {
+
+                                tab[index_do_rec_mais_antigo, z] = p;
+                            }
+
+                        }
+
+                        Console.WriteLine($"O recluso com o numero de cidadao {rec_mais_antigo.Num_cidadao} será transferido e o recluso com o numero de cidadao {p.Num_cidadao} ocupará o seu lugar");
 
                     }
                     else
@@ -65,17 +93,48 @@ namespace trabalho2
 
         }
 
-        public Pessoa Procurar(string nome)
+        public void Procurar(string nc)
         {
-            Console.WriteLine(nome.GetHashCode());
-            //Console.WriteLine("tab index 2:" + tab[2]);
-            return null;
+            
+            int temp_index = calc_index(nc);
+            //Console.WriteLine(temp_index);
+           
+
+            for (int z = 0; z < 3; z++)
+            {
+                if (tab[temp_index, z] != null && tab[temp_index, z].Num_cidadao == nc)
+                {
+                    
+                    Console.WriteLine($"O recluso com o numero de cidadao {nc} encontra-se na cela: {temp_index} na cama: {z}");
+                    //return procurado;
+                }
+
+            }
+            //return null;
         }
 
-        public void Remover(string nome)
+        public void Remover(Pessoa p)
         {
+            //foreach (string num_cid in lista_reclusos)
+            //{
+            //    if (num_cid == p.Num_cidadao)
+            //    {
+
+            //    }
+
+            //}
+        }
+
+
+        public int calc_index(string s)
+        {
+            int soma = 0;
+            foreach (char ch in s)
+                soma += Convert.ToInt32(ch);
+            return soma % tam;
 
         }
+
 
         public int calc_index(Pessoa p)
         {
@@ -83,7 +142,24 @@ namespace trabalho2
             
         }
 
+        // função para descobrir o mrecluso mais antigo
+        public Pessoa o_mais_antigo(Pessoa p)
+        {
+            Pessoa mais_antigo = lista_reclusos[0] as Pessoa;
+            //DateTime temp;
+            //DateTime now = DateTime.Now;
+            foreach (Pessoa x in lista_reclusos)
+            {
+                //DateTime calc = now - x.Dataentrada;
+                if (x.Dataentrada < mais_antigo.Dataentrada)
+                {
+                    mais_antigo = x;
+                }
+            
+            }
 
+            return mais_antigo;
+        }
 
 
         public override string ToString()
