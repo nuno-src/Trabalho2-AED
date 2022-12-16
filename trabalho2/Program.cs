@@ -27,12 +27,14 @@ namespace trabalho2
             while (op != 0)
             {
                 Console.WriteLine("\n-------------------MENU-----------------");
-                Console.WriteLine(" 1) - Adicionar recluso");
-                Console.WriteLine(" 2) - Procurar recluso");
-                Console.WriteLine(" 3) - Remover recluso");
-                Console.WriteLine(" 4) - Ver lotação da prisão");
-
-
+                Console.WriteLine(" 1) - Remover recluso");
+                Console.WriteLine(" 2) - Adicionar recluso");
+                Console.WriteLine(" 3) - Alteração da pena de um recluso");
+                Console.WriteLine(" 4) - Procura de de cela de um recluso");
+                Console.WriteLine(" 5) - Mapa da prisao numa determinada data");
+                Console.WriteLine(" 6) - Ver Info completa de todos os reclusos");
+                Console.WriteLine(" 7) - Ver histórico de ex reclusos");
+                Console.WriteLine(" 8) - Ver lotação atual da prisão");
                 Console.WriteLine(" 0) - Sair");
                 Console.WriteLine("------------------------------------------");
 
@@ -44,11 +46,14 @@ namespace trabalho2
                 switch (op)
                 {
 
-                    case 1: Adicionar_recluso(); break;
-                    case 2: Procurar_recluso(); break;
-                    case 3: Remover_recluso(); break;
-                    case 4: ver_lotacao(); break;
-                    case 5: Alteracao_pena(); break;
+                    case 1: Remover_recluso(); break;
+                    case 2: Adicionar_recluso(); break;
+                    case 3: Alteracao_pena(); break;
+                    case 4: Procurar_recluso(); break;
+                    case 5: ; break;
+                    case 6: lista_reclusos(); break;
+                    case 7: ; break;
+                    case 8: ver_lotacao(); break;
                     case 0: Environment.Exit(0); break;
                     
 
@@ -116,6 +121,8 @@ namespace trabalho2
             Console.Write("Insira o numero de cidadao:");
             string num_cid = Console.ReadLine();
 
+            
+
             t.Procurar(num_cid);
 
         }
@@ -126,7 +133,10 @@ namespace trabalho2
             Console.Write("Insira o numero de cidadao do recluso:");
             string num_cid = Console.ReadLine();
 
-            t.Remover(num_cid);
+            Console.Write("Insira o motivo de saida:");
+            string motivosaida = Console.ReadLine();
+
+            t.Remover(num_cid, motivosaida);
 
         }
 
@@ -143,6 +153,19 @@ namespace trabalho2
 
         }
 
+        static void lista_reclusos()
+        {
+
+            t.lista_completa_rec();
+
+            //foreach (Pessoa p in lista_exreclusos)
+            //{
+            //    Console.WriteLine(p.ToString());
+
+
+            //}
+
+        }
 
         static void ver_lotacao()
         {

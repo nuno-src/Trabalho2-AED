@@ -12,6 +12,7 @@ namespace trabalho2
         const int tam = 8;
 
         private List<Pessoa> lista_reclusos = new List<Pessoa>();
+        private List<Pessoa> lista_exreclusos = new List<Pessoa>();
 
         public MinhaTabelaHash() : this(8) { }
         public MinhaTabelaHash(int tam)
@@ -68,7 +69,8 @@ namespace trabalho2
                         {
                             if (tab[index_do_rec_mais_antigo, z] != null && tab[index_do_rec_mais_antigo, z].Num_cidadao == rec_mais_antigo.Num_cidadao)
                             {
-
+                                tab[index_do_rec_mais_antigo, z].Motivosaida = "Tranferencia";
+                                lista_exreclusos.Add(tab[index_do_rec_mais_antigo, z]);
                                 tab[index_do_rec_mais_antigo, z] = p;
                             }
 
@@ -98,39 +100,90 @@ namespace trabalho2
             
             int temp_index = calc_index(nc);
             //Console.WriteLine(temp_index);
-           
+            int k = 0;
 
-            for (int z = 0; z < 3; z++)
+            foreach (Pessoa p in lista_reclusos)
             {
-                if (tab[temp_index, z] != null && tab[temp_index, z].Num_cidadao == nc)
+                if (p.Num_cidadao == nc)
                 {
-                    
-                    Console.WriteLine($"O recluso com o numero de cidadao {nc} encontra-se na cela: {temp_index} na cama: {z}");
-                    //return procurado;
-                }
+                    while ( k == 0)
+                    {
 
+                        for (int z = 0; z < 3; z++)
+                        {
+
+                            if (tab[temp_index, z] != null && tab[temp_index, z].Num_cidadao == nc)
+                            {
+
+                                Console.WriteLine($"O recluso com o numero de cidadao {nc} encontra-se na cela: {temp_index} na cama: {z}");
+                                //return procurado;
+                                k++;
+                                //break;
+                            }
+                            else
+                            {
+                                temp_index++;
+                            }
+                        }
+                    }
+
+
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("O numero de cidadao introduzido não corresponde a nenhum recluso.");
+                    break;
+                }
             }
-            //return null;
+            
         }
 
-        public void Remover(string nc)
+        public void Remover(string nc, string mts)
         {
 
             int temp_index = calc_index(nc);
+            int k = 0;
 
-
-            for (int z = 0; z < 3; z++)
+            foreach (Pessoa p in lista_reclusos)
             {
-                if (tab[temp_index, z] != null && tab[temp_index, z].Num_cidadao == nc)
+                if (p.Num_cidadao == nc)
                 {
+                    while (k == 0)
+                    {
+                        for (int z = 0; z < 3; z++)
+                        {
+                            if (tab[temp_index, z] != null && tab[temp_index, z].Num_cidadao == nc)
+                            {
+                                tab[temp_index, z].Motivosaida = mts;
+                                lista_reclusos.Remove(tab[temp_index, z]);
+                                lista_exreclusos.Add(tab[temp_index, z]);
+                                tab[temp_index, z] = null;
 
-                    tab[temp_index, z] = null;
+                                Console.WriteLine($"O recluso com o numero de cidadao {nc} foi removido.");
+                                //return procurado;
+                                k++;
+                                //break;
+                            }
+                            else
+                            {
+                                temp_index++;
+                            }
 
-                    Console.WriteLine($"O recluso com o numero de cidadao {nc} foi removido.");
-                    //return procurado;
+                        }
+                    }
+
+                    break;
+
                 }
-
+                else
+                {
+                    Console.WriteLine("O numero de cidadao introduzido não corresponde a nenhum recluso");
+                    break;
+                }
             }
+            
+            
 
 
 
@@ -148,27 +201,63 @@ namespace trabalho2
         public void alteracao_pena(string nc, int np)
         {
 
+            int k = 0;
+
             int temp_index = calc_index(nc);
 
-
-            for (int z = 0; z < 3; z++)
+            foreach (Pessoa p in lista_reclusos)
             {
-                if (tab[temp_index, z] != null && tab[temp_index, z].Num_cidadao == nc)
+                if (p.Num_cidadao == nc)
                 {
+                    p.Diasacumprir = np;
+                    while (k == 0)
+                    {
 
-                    tab[temp_index, z].Diasacumprir = np;
+                        for (int z = 0; z < 3; z++)
+                        {
+                            if (tab[temp_index, z] != null && tab[temp_index, z].Num_cidadao == nc)
+                            {
 
-                    Console.WriteLine($"O recluso com o numero de cidadao {nc} teve a sua pena alterada para {np} dias");
-                    //return procurado;
+                                tab[temp_index, z].Diasacumprir = np;
+
+                                Console.WriteLine($"O recluso com o numero de cidadao {nc} teve a sua pena alterada para {np} dias");
+                                //return procurado;
+                                k++;
+                                //break;
+                            }
+                            else
+                            {
+                                temp_index++;
+                            }
+                        }
+                    }
+
+                    break;
                 }
-
+                else
+                {
+                    Console.WriteLine("O numero de cidadao introduzido não corresponde a nenhum recluso");
+                    break;
+                }
             }
 
         }
 
 
 
+        public void lista_completa_rec()
+        {
 
+            foreach (Pessoa p in lista_exreclusos)
+            {
+                p.ToString();
+            
+
+            }
+        
+        
+        
+        }
 
 
 
