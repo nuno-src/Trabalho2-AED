@@ -113,8 +113,27 @@ namespace trabalho2
             //return null;
         }
 
-        public void Remover(Pessoa p)
+        public void Remover(string nc)
         {
+
+            int temp_index = calc_index(nc);
+
+
+            for (int z = 0; z < 3; z++)
+            {
+                if (tab[temp_index, z] != null && tab[temp_index, z].Num_cidadao == nc)
+                {
+
+                    tab[temp_index, z] = null;
+
+                    Console.WriteLine($"O recluso com o numero de cidadao {nc} foi removido.");
+                    //return procurado;
+                }
+
+            }
+
+
+
             //foreach (string num_cid in lista_reclusos)
             //{
             //    if (num_cid == p.Num_cidadao)
@@ -124,6 +143,46 @@ namespace trabalho2
 
             //}
         }
+
+
+        public void alteracao_pena(string nc, int np)
+        {
+
+            int temp_index = calc_index(nc);
+
+
+            for (int z = 0; z < 3; z++)
+            {
+                if (tab[temp_index, z] != null && tab[temp_index, z].Num_cidadao == nc)
+                {
+
+                    tab[temp_index, z].Diasacumprir = np;
+
+                    Console.WriteLine($"O recluso com o numero de cidadao {nc} foi removido.");
+                    //return procurado;
+                }
+
+            }
+
+
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         public int calc_index(string s)

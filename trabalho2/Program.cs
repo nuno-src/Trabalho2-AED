@@ -46,8 +46,11 @@ namespace trabalho2
 
                     case 1: Adicionar_recluso(); break;
                     case 2: Procurar_recluso(); break;
-                    case 0: Environment.Exit(0); break;
+                    case 3: Remover_recluso(); break;
                     case 4: ver_lotacao(); break;
+                    case 5: Alteracao_pena(); break;
+                    case 0: Environment.Exit(0); break;
+                    
 
 
 
@@ -117,6 +120,28 @@ namespace trabalho2
 
         }
 
+
+        static void Remover_recluso()
+        {
+            Console.Write("Insira o numero de cidadao do recluso:");
+            string num_cid = Console.ReadLine();
+
+            t.Remover(num_cid);
+
+        }
+
+        static void Alteracao_pena()
+        {
+            Console.Write("Insira o numero de cidadao do recluso:");
+            string num_cid = Console.ReadLine();
+
+            Console.Write("Insira o numero de dias de pena a cumprir:");
+            int ndiasacumprir = int.Parse(Console.ReadLine());
+
+            t.alteracao_pena(num_cid, ndiasacumprir);
+
+
+        }
 
 
         static void ver_lotacao()
