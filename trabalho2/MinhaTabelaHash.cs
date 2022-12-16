@@ -248,18 +248,24 @@ namespace trabalho2
         public void lista_completa_rec()
         {
 
-            foreach (Pessoa p in lista_exreclusos)
+            foreach (Pessoa p in lista_reclusos)
             {
-                p.ToString();
-            
-
+                
+                Console.WriteLine(p.ToString());
             }
-        
-        
-        
+
         }
 
+        public void lista_completa_exrec()
+        {
 
+            foreach (Pessoa p in lista_exreclusos)
+            {
+
+                Console.WriteLine(p.ToString());
+            }
+
+        }
 
 
 

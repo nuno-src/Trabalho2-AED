@@ -52,7 +52,7 @@ namespace trabalho2
                     case 4: Procurar_recluso(); break;
                     case 5: ; break;
                     case 6: lista_reclusos(); break;
-                    case 7: ; break;
+                    case 7: lista_ex_reclusos(); break;
                     case 8: ver_lotacao(); break;
                     case 0: Environment.Exit(0); break;
                     
@@ -155,15 +155,15 @@ namespace trabalho2
 
         static void lista_reclusos()
         {
-
+            Console.WriteLine("Reclusos: \n");
             t.lista_completa_rec();
 
-            //foreach (Pessoa p in lista_exreclusos)
-            //{
-            //    Console.WriteLine(p.ToString());
+        }
 
-
-            //}
+        static void lista_ex_reclusos()
+        {
+            Console.WriteLine("Antigos reclusos: \n");
+            t.lista_completa_exrec();
 
         }
 
