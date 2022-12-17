@@ -129,7 +129,11 @@ namespace trabalho2
 
             t.InserirNovaPessoa(new Pessoa { Num_cidadao = "345564", Nome = "Zeferino", Genero = "Masculino", Datanasc = DateTime.Parse("03/07/1970"), Contacto = 123456789, Dataentrada = DateTime.Parse("14/09/1980"), Diasacumprir = 23000, Motivosaida = "pena cumprida", Datasaida = DateTime.Parse("23/03/2050") });
             t.InserirNovaPessoa(new Pessoa { Num_cidadao = "3455656744", Nome = "Saraiva", Genero = "Masculino", Datanasc = DateTime.Parse("03/07/1970"), Contacto = 123456789, Dataentrada = DateTime.Parse("14/09/1980"), Diasacumprir = 23000, Motivosaida = "pena cumprida", Datasaida = DateTime.Parse("23/03/2050") });
-            t.InserirNovaPessoa(new Pessoa { Num_cidadao = "76893455642", Nome = "Albano", Genero = "Masculino", Datanasc = DateTime.Parse("03/07/1970"), Contacto = 123456789, Dataentrada = DateTime.Parse("14/09/1980"), Diasacumprir = 23000, Motivosaida = "pena cumprida", Datasaida = DateTime.Parse("23/03/2050") });
+            t.InserirNovaPessoa(new Pessoa { Num_cidadao = "76893456755642", Nome = "Albano", Genero = "Masculino", Datanasc = DateTime.Parse("03/07/1970"), Contacto = 123456789, Dataentrada = DateTime.Parse("14/09/1980"), Diasacumprir = 23000, Motivosaida = "pena cumprida", Datasaida = DateTime.Parse("23/03/2050") });
+            t.InserirNovaPessoa(new Pessoa { Num_cidadao = "7368934556677742", Nome = "joao", Genero = "Masculino", Datanasc = DateTime.Parse("03/07/1970"), Contacto = 123456789, Dataentrada = DateTime.Parse("14/09/1980"), Diasacumprir = 23000, Motivosaida = "pena cumprida", Datasaida = DateTime.Parse("23/03/2050") });
+            t.InserirNovaPessoa(new Pessoa { Num_cidadao = "76893455642", Nome = "rui", Genero = "Masculino", Datanasc = DateTime.Parse("03/07/1970"), Contacto = 123456789, Dataentrada = DateTime.Parse("14/09/1980"), Diasacumprir = 23000, Motivosaida = "pena cumprida", Datasaida = DateTime.Parse("23/03/2050") });
+            t.InserirNovaPessoa(new Pessoa { Num_cidadao = "76893455647682", Nome = "quim", Genero = "Masculino", Datanasc = DateTime.Parse("03/07/1970"), Contacto = 123456789, Dataentrada = DateTime.Parse("14/09/1980"), Diasacumprir = 23000, Motivosaida = "pena cumprida", Datasaida = DateTime.Parse("23/03/2050") });
+            t.InserirNovaPessoa(new Pessoa { Num_cidadao = "7689344555642", Nome = "josefe", Genero = "Masculino", Datanasc = DateTime.Parse("03/07/1970"), Contacto = 123456789, Dataentrada = DateTime.Parse("14/09/1980"), Diasacumprir = 23000, Motivosaida = "pena cumprida", Datasaida = DateTime.Parse("23/03/2050") });
 
 
             Console.WriteLine("\nRecluso registado com sucesso!");
@@ -142,8 +146,8 @@ namespace trabalho2
             Console.Write("Insira o numero de cidadao:");
             string num_cid = Console.ReadLine();
 
-            
 
+            
             t.Procurar(num_cid);
 
         }
@@ -181,12 +185,13 @@ namespace trabalho2
         {
 
             Console.Write("Insira um mes:");
-            string mes = Console.ReadLine();
+            int mes = int.Parse(Console.ReadLine());
 
             Console.Write("Insira um ano:");
-            string ano = Console.ReadLine();
+            int ano = int.Parse(Console.ReadLine());
 
 
+            Console.WriteLine($"Os seguintes reclusos acama a pena em {mes}/{ano}:");
             t.mapa_sp_data(mes, ano);
 
 

@@ -168,6 +168,20 @@ namespace trabalho2
                                 //return procurado;
                                 k++;
                                 //break;
+                                if (z == 0 && tab[temp_index, 1] != null && tab[temp_index, 2] != null)
+                                {
+                                    tab[temp_index, 0] = tab[temp_index, 1];
+                                    tab[temp_index, 1] = tab[temp_index, 2];
+                                    tab[temp_index, 2] = null;
+                                }
+                                else if (z == 0 && tab[temp_index, 1] != null)
+                                {
+                                    tab[temp_index, 0] = tab[temp_index, 1];
+                                    tab[temp_index, 1] = tab[temp_index, 2];
+                                    tab[temp_index, 2] = null;
+                                }
+                                
+
                             }
                             else
                             {
@@ -180,14 +194,14 @@ namespace trabalho2
                     break;
 
                 }
-                else
-                {
-                    Console.WriteLine("O numero de cidadao introduzido não corresponde a nenhum recluso");
-                    break;
-                }
+                //else
+                //{
+                //    Console.WriteLine("O numero de cidadao introduzido não corresponde a nenhum recluso");
+                    
+                //}
             }
             
-            
+
 
 
 
@@ -238,11 +252,11 @@ namespace trabalho2
 
                     break;
                 }
-                else
-                {
-                    Console.WriteLine("O numero de cidadao introduzido não corresponde a nenhum recluso");
-                    break;
-                }
+                //else
+                //{
+                //    Console.WriteLine("O numero de cidadao introduzido não corresponde a nenhum recluso");
+                    
+                //}
             }
 
         }
@@ -272,28 +286,28 @@ namespace trabalho2
         }
 
         // ver lotação da prisao num data especifica
-        public void mapa_sp_data(string mes, string ano)
+        public void mapa_sp_data(int mes, int ano)
         {
-
-
-
 
             
 
             for (int i = 0; i < tam; i++)
             {
-                Console.WriteLine("--------------------------");
-                Console.WriteLine("Cela: " + i);
-                Console.WriteLine(" ");
-                Console.WriteLine("Camas:");
+                //Console.WriteLine("--------------------------");
+                //Console.WriteLine("Cela: " + i);
+                //Console.WriteLine(" ");
+                //Console.WriteLine("Camas:");
 
 
 
                 for (int s = 0; s < 3; s++)
                 {
-
-                    Console.WriteLine(string.Format("[{0}] -> {1} ", s,
-                    tab[i, s] != null ? tab[i, s].Nome : "V A Z I O"));
+                    if (tab[i, s] != null && tab[i,s].Datasaida.Month == mes && tab[i, s].Datasaida.Year == ano)
+                    {
+                        Console.WriteLine("Cela: " + i);
+                        Console.WriteLine(string.Format("[{0}] -> {1} ", s,
+                        tab[i, s] != null ? tab[i, s].Nome : "V A Z I O"));
+                    }
 
                 }
             }
