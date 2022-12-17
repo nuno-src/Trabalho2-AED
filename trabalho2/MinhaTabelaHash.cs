@@ -11,7 +11,10 @@ namespace trabalho2
         static public Pessoa[,] tab;
         const int tam = 8;
 
+        //Lista de atuais reclusos, usada apenas para confirmação de dados inseridos pelo utilizador e na opção 6
         private List<Pessoa> lista_reclusos = new List<Pessoa>();
+
+        //Lista de ex reclusos
         private List<Pessoa> lista_exreclusos = new List<Pessoa>();
 
         public MinhaTabelaHash() : this(8) { }
@@ -139,7 +142,7 @@ namespace trabalho2
             
         }
 
-        public void Remover(string nc, string mts)
+        public void Remover(string nc, string mts, DateTime now)
         {
 
             int temp_index = calc_index(nc);
@@ -156,6 +159,7 @@ namespace trabalho2
                             if (tab[temp_index, z] != null && tab[temp_index, z].Num_cidadao == nc)
                             {
                                 tab[temp_index, z].Motivosaida = mts;
+                                tab[temp_index, z].Datasaida = now;
                                 lista_reclusos.Remove(tab[temp_index, z]);
                                 lista_exreclusos.Add(tab[temp_index, z]);
                                 tab[temp_index, z] = null;
@@ -267,8 +271,38 @@ namespace trabalho2
 
         }
 
+        // ver lotação da prisao num data especifica
+        public void mapa_sp_data(string mes, string ano)
+        {
 
 
+
+
+            
+
+            for (int i = 0; i < tam; i++)
+            {
+                Console.WriteLine("--------------------------");
+                Console.WriteLine("Cela: " + i);
+                Console.WriteLine(" ");
+                Console.WriteLine("Camas:");
+
+
+
+                for (int s = 0; s < 3; s++)
+                {
+
+                    Console.WriteLine(string.Format("[{0}] -> {1} ", s,
+                    tab[i, s] != null ? tab[i, s].Nome : "V A Z I O"));
+
+                }
+            }
+
+
+            Console.WriteLine("--------------------------");
+            
+
+        }
 
 
 

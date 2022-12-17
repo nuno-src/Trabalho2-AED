@@ -50,7 +50,7 @@ namespace trabalho2
                     case 2: Adicionar_recluso(); break;
                     case 3: Alteracao_pena(); break;
                     case 4: Procurar_recluso(); break;
-                    case 5: ; break;
+                    case 5: mapa_data(); break;
                     case 6: lista_reclusos(); break;
                     case 7: lista_ex_reclusos(); break;
                     case 8: ver_lotacao(); break;
@@ -81,8 +81,29 @@ namespace trabalho2
             //Console.Write("Insira o Nome:");
             //string nome = Console.ReadLine();
 
-            //Console.Write("Insira o Genero:");
-            //string genero = Console.ReadLine();
+            //Console.Write("Insira o Genero: 1) Maculino / 2) Feminino");
+            //string opc = Console.ReadLine();
+            //string genero;
+
+            //do {
+            //    if (opc == "1")
+            //    {
+
+            //        genero = "Masculino";
+            //    }
+            //    if (opc == "2")
+            //    {
+            //        genero = "Feminino";
+
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("Opção errada");
+            //    }
+
+
+            //} while (opc != "1" || opc != "2");
+
 
             //Console.Write("Insira a Data de nascimento:");
             //string datanasc = Console.ReadLine();
@@ -136,7 +157,9 @@ namespace trabalho2
             Console.Write("Insira o motivo de saida:");
             string motivosaida = Console.ReadLine();
 
-            t.Remover(num_cid, motivosaida);
+            DateTime now = DateTime.Now;
+
+            t.Remover(num_cid, motivosaida, now);
 
         }
 
@@ -152,6 +175,28 @@ namespace trabalho2
 
 
         }
+
+
+        static void mapa_data()
+        {
+
+            Console.Write("Insira um mes:");
+            string mes = Console.ReadLine();
+
+            Console.Write("Insira um ano:");
+            string ano = Console.ReadLine();
+
+
+            t.mapa_sp_data(mes, ano);
+
+
+
+
+        }
+
+
+
+
 
         static void lista_reclusos()
         {
