@@ -34,12 +34,14 @@ namespace trabalho2
         {
             lista_reclusos.Add(p);
 
+            int t = 0;
+
             int cama = 0;
             int volta = 0;
             
             int i = calc_index(p);
             Console.WriteLine("Index:" + i);
-            while (true)
+            while (t == 0)
             {
                 if (cama <= 2)
                 {
@@ -48,6 +50,7 @@ namespace trabalho2
                         tab[i, cama] = p;
                         Console.WriteLine("Index:" + i);
                         Console.WriteLine("Cama:" + cama);
+                        t = 1;
                         break;
                         
                         
@@ -62,7 +65,7 @@ namespace trabalho2
                     {
                         // acontece se todas as celas estivrem cheias(o recluso mais antigo é tranferido)
 
-                        Console.WriteLine($"O recluso com o numero de cidadao {p.Num_cidadao} ");
+                        
 
                         Pessoa rec_mais_antigo = o_mais_antigo(p);
 
@@ -80,7 +83,7 @@ namespace trabalho2
                         }
 
                         Console.WriteLine($"O recluso com o numero de cidadao {rec_mais_antigo.Num_cidadao} será transferido e o recluso com o numero de cidadao {p.Num_cidadao} ocupará o seu lugar");
-
+                        t = 1;
                     }
                     else
                     {
