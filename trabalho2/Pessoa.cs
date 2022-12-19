@@ -19,12 +19,7 @@ namespace trabalho2
         private string motivosaida;
         private DateTime datasaida;
 
-        //public Pessoa(string nNome, int Nidade, int Nnumcidadao)
-        //{
-        //    nome = nNome;
-        //    idade= Nidade;
-        //    numcidadao = Nnumcidadao;
-        //}
+        
 
         public string Num_cidadao { get => numcidadao; set => numcidadao = value; }
         public string Nome { get => nome; set => nome = value; }
@@ -49,7 +44,7 @@ namespace trabalho2
 
         public override string ToString()
         {
-            return string.Format("{0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}", Num_cidadao, Nome, Genero, Datanasc, Contacto, Dataentrada, Diasacumprir, Motivosaida, Datasaida);
+            return string.Format("Numero Cidadão: {0}, Nome: {1}, Genero: {2}, Data de nasciemento: {3}, Contacto: {4}, Data de entrada: {5}, Dias a cumprir: {6}, Motivo de saida: {7}, Data de saida: {8}", Num_cidadao, Nome, Genero, Datanasc, Contacto, Dataentrada, Diasacumprir, Motivosaida, Datasaida);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace trabalho2
         const int tam = 8;
 
         //Lista de atuais reclusos, usada apenas para confirmação de dados inseridos pelo utilizador e na opção 6
-        private List<Pessoa> lista_reclusos = new List<Pessoa>();
+        static private List<Pessoa> lista_reclusos = new List<Pessoa>();
 
         //Lista de ex reclusos
         private List<Pessoa> lista_exreclusos = new List<Pessoa>();
@@ -28,6 +28,10 @@ namespace trabalho2
         {
             return tab;
         }
+        static public List<Pessoa> Getlista()
+        {
+            return lista_reclusos;
+        }
 
 
         public void InserirNovaPessoa(Pessoa p)
@@ -40,7 +44,9 @@ namespace trabalho2
             int volta = 0;
             
             int i = calc_index(p);
-            Console.WriteLine("Index:" + i);
+            //Console.WriteLine("Index:" + i);
+
+
             while (t == 0)
             {
                 if (cama <= 2)
@@ -48,8 +54,8 @@ namespace trabalho2
                     if (tab[i, cama] == null)
                     {
                         tab[i, cama] = p;
-                        Console.WriteLine("Index:" + i);
-                        Console.WriteLine("Cama:" + cama);
+                        //Console.WriteLine("Index:" + i);
+                        //Console.WriteLine("Cama:" + cama);
                         t = 1;
                         break;
                         
