@@ -12,7 +12,7 @@ namespace trabalho2
         const int tam = 8;
 
         //Lista de atuais reclusos, usada apenas para confirmação de dados inseridos pelo utilizador e na opção 6
-        static private List<Pessoa> lista_reclusos = new List<Pessoa>();
+        private List<Pessoa> lista_reclusos = new List<Pessoa>();
 
         //Lista de ex reclusos
         private List<Pessoa> lista_exreclusos = new List<Pessoa>();
@@ -28,10 +28,10 @@ namespace trabalho2
         {
             return tab;
         }
-        static public List<Pessoa> Getlista()
-        {
-            return lista_reclusos;
-        }
+        //static public List<Pessoa> Getlista()
+        //{
+        //    return lista_reclusos;
+        //}
 
 
         public void InserirNovaPessoa(Pessoa p)
